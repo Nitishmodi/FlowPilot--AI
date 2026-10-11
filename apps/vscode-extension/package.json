@@ -5,6 +5,10 @@
   "version": "0.1.0",
   "private": true,
   "publisher": "flowpilot",
+  "author": {
+    "name": "Nitish Modi",
+    "email": "nitishmodi200@gmail.com"
+  },
   "icon": "media/icon.png",
   "galleryBanner": {
     "color": "#12162a",

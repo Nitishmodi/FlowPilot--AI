@@ -27,7 +27,7 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="border-t border-line">
-      <div className="mx-auto grid max-w-7xl gap-8 px-6 py-14 sm:grid-cols-3">
+      <div className="mx-auto grid max-w-7xl gap-8 px-6 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <Logo size={22} />
           <p className="mt-3 max-w-xs text-sm leading-6 text-muted">A toolbox for the repository in front of you. Each stage keeps its own tools.</p>
@@ -49,6 +49,15 @@ export function SiteFooter() {
             <Link href="/docs/commands" className="footer-link">Commands</Link>
             <Link href="/privacy" className="footer-link">Privacy</Link>
             <Link href="/terms" className="footer-link">Terms</Link>
+          </div>
+        </div>
+        <div className="text-sm">
+          <p className="font-medium">Developer</p>
+          <div className="mt-3 grid gap-2">
+            <p>Nitish Modi</p>
+            <a href="mailto:nitishmodi200@gmail.com" className="footer-link">
+              nitishmodi200@gmail.com
+            </a>
           </div>
         </div>
       </div>

@@ -37,3 +37,8 @@ code --install-extension ~/Downloads/flowpilot-ai-0.1.0.vsix
 Right-click a file and choose **FlowPilot: Explain File** to see its line count and named exports.
 
 The activity bar lists the other tools. One command runs at a time. If the output says `flowpilot` is not available, install the terminal command and run the check again.
+
+## Developer
+
+Nitish Modi  
+[nitishmodi200@gmail.com](mailto:nitishmodi200@gmail.com)
