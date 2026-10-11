@@ -1,0 +1,191 @@
+{
+  "name": "flowpilot-ai",
+  "displayName": "FlowPilot AI",
+  "description": "Run the repository's format, lint, type, test, and pull-request checks from the editor.",
+  "version": "0.1.0",
+  "private": true,
+  "publisher": "flowpilot",
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#12162a",
+    "theme": "dark"
+  },
+  "categories": ["Linters", "Testing"],
+  "keywords": ["flowpilot", "lint", "format", "test", "typecheck", "pull request", "git", "secrets"],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "extensionKind": ["workspace"],
+  "capabilities": {
+    "virtualWorkspaces": false,
+    "untrustedWorkspaces": {
+      "supported": false,
+      "description": "FlowPilot runs project scripts and Git commands in the open folder."
+    }
+  },
+  "main": "./extension.js",
+  "activationEvents": ["onStartupFinished"],
+  "contributes": {
+    "commands": [
+      { "command": "flowpilot.pick", "title": "Run a Tool", "category": "FlowPilot", "icon": "$(tools)" },
+      { "command": "flowpilot.check", "title": "Run Check", "category": "FlowPilot", "icon": "$(checklist)" },
+      { "command": "flowpilot.prCheck", "title": "Run Pre-PR Workflow", "category": "FlowPilot", "icon": "$(git-pull-request)" },
+      { "command": "flowpilot.doctor", "title": "Doctor", "category": "FlowPilot", "icon": "$(pulse)" },
+      { "command": "flowpilot.status", "title": "Status", "category": "FlowPilot", "icon": "$(git-branch)" },
+      { "command": "flowpilot.map", "title": "Map", "category": "FlowPilot", "icon": "$(list-tree)" },
+      { "command": "flowpilot.config", "title": "Show Config", "category": "FlowPilot", "icon": "$(settings-gear)" },
+      { "command": "flowpilot.tools", "title": "List Tools", "category": "FlowPilot", "icon": "$(library)" },
+      { "command": "flowpilot.init", "title": "Initialize Config", "category": "FlowPilot", "icon": "$(new-file)" },
+      { "command": "flowpilot.diff", "title": "Diff", "category": "FlowPilot", "icon": "$(diff)" },
+      { "command": "flowpilot.explain", "title": "Explain File", "category": "FlowPilot", "icon": "$(book)" },
+      { "command": "flowpilot.deadcode", "title": "Dead Code", "category": "FlowPilot", "icon": "$(search)" },
+      { "command": "flowpilot.fmt", "title": "Format", "category": "FlowPilot", "icon": "$(symbol-color)" },
+      { "command": "flowpilot.lint", "title": "Lint", "category": "FlowPilot", "icon": "$(warning)" },
+      { "command": "flowpilot.types", "title": "Types", "category": "FlowPilot", "icon": "$(symbol-type-parameter)" },
+      { "command": "flowpilot.test", "title": "Test", "category": "FlowPilot", "icon": "$(beaker)" },
+      { "command": "flowpilot.secrets", "title": "Secrets", "category": "FlowPilot", "icon": "$(key)" },
+      { "command": "flowpilot.review", "title": "Review", "category": "FlowPilot", "icon": "$(comment-discussion)" },
+      { "command": "flowpilot.depsAudit", "title": "Dependency Audit", "category": "FlowPilot", "icon": "$(package)" },
+      { "command": "flowpilot.pr", "title": "Draft Pull Request", "category": "FlowPilot", "icon": "$(git-pull-request)" },
+      { "command": "flowpilot.ci", "title": "CI", "category": "FlowPilot", "icon": "$(github-action)" },
+      { "command": "flowpilot.debug", "title": "Debug Last Report", "category": "FlowPilot", "icon": "$(debug)" },
+      { "command": "flowpilot.report", "title": "Show Last Report", "category": "FlowPilot", "icon": "$(output)" },
+      { "command": "flowpilot.taskStart", "title": "Start Task Note", "category": "FlowPilot", "icon": "$(edit)" },
+      { "command": "flowpilot.taskSave", "title": "Save Task Note", "category": "FlowPilot", "icon": "$(save)" },
+      { "command": "flowpilot.resume", "title": "Resume Task", "category": "FlowPilot", "icon": "$(history)" },
+      { "command": "flowpilot.handoff", "title": "Handoff Task", "category": "FlowPilot", "icon": "$(markdown)" },
+      { "command": "flowpilot.showOutput", "title": "Show Output", "category": "FlowPilot", "icon": "$(output)" }
+    ],
+    "menus": {
+      "commandPalette": [
+        { "command": "flowpilot.pick" },
+        { "command": "flowpilot.check" },
+        { "command": "flowpilot.prCheck" },
+        { "command": "flowpilot.doctor" },
+        { "command": "flowpilot.status" },
+        { "command": "flowpilot.map" },
+        { "command": "flowpilot.config" },
+        { "command": "flowpilot.tools" },
+        { "command": "flowpilot.init" },
+        { "command": "flowpilot.diff" },
+        { "command": "flowpilot.explain" },
+        { "command": "flowpilot.deadcode" },
+        { "command": "flowpilot.fmt" },
+        { "command": "flowpilot.lint" },
+        { "command": "flowpilot.types" },
+        { "command": "flowpilot.test" },
+        { "command": "flowpilot.secrets" },
+        { "command": "flowpilot.review" },
+        { "command": "flowpilot.depsAudit" },
+        { "command": "flowpilot.pr" },
+        { "command": "flowpilot.ci" },
+        { "command": "flowpilot.debug" },
+        { "command": "flowpilot.report" },
+        { "command": "flowpilot.taskStart" },
+        { "command": "flowpilot.taskSave" },
+        { "command": "flowpilot.resume" },
+        { "command": "flowpilot.handoff" },
+        { "command": "flowpilot.showOutput" }
+      ],
+      "editor/context": [
+        {
+          "command": "flowpilot.explain",
+          "when": "resourceScheme == file",
+          "group": "flowpilot@1"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "flowpilot.explain",
+          "when": "resourceScheme == file && !explorerResourceIsFolder",
+          "group": "flowpilot@1"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "flowpilot.pick",
+          "when": "view == flowpilot.tools",
+          "group": "navigation"
+        },
+        {
+          "command": "flowpilot.showOutput",
+          "when": "view == flowpilot.tools",
+          "group": "navigation"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "flowpilot",
+          "title": "FlowPilot",
+          "icon": "media/activity.svg"
+        }
+      ]
+    },
+    "views": {
+      "flowpilot": [
+        {
+          "id": "flowpilot.tools",
+          "name": "Tools",
+          "contextualTitle": "FlowPilot",
+          "icon": "tools"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "flowpilot.tools",
+        "contents": "Open a repository folder. FlowPilot runs its checks in that folder.\n[Run Doctor](command:flowpilot.doctor)"
+      }
+    ],
+    "configuration": {
+      "title": "FlowPilot",
+      "properties": {
+        "flowpilot.executable": {
+          "type": "string",
+          "default": "",
+          "scope": "resource",
+          "markdownDescription": "Command used to start FlowPilot. Leave empty to use `flowpilot` on `PATH`. In this checkout, an empty value uses the local CLI through `tsx`."
+        },
+        "flowpilot.revealOutput": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Show the FlowPilot output channel when a command starts."
+        },
+        "flowpilot.statusBar": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Show the FlowPilot status bar item. It opens the tool picker."
+        }
+      }
+    },
+    "walkthroughs": [
+      {
+        "id": "flowpilot.start",
+        "title": "Set up FlowPilot",
+        "description": "Run the same local checks from the activity bar, the command palette, and the status bar.",
+        "steps": [
+          {
+            "id": "folder",
+            "title": "Open the repository",
+            "description": "Use File, then Open Folder, and choose the clone you want to check. Commands run in the first workspace folder.",
+            "media": { "image": "media/icon.png", "altText": "FlowPilot mark" }
+          },
+          {
+            "id": "doctor",
+            "title": "See which checks can run",
+            "description": "Run FlowPilot: Doctor. It prints Node, Git, and the scripts this repository already has.",
+            "media": { "image": "media/icon.png", "altText": "FlowPilot mark" }
+          },
+          {
+            "id": "check",
+            "title": "Run the pre-PR workflow",
+            "description": "Run FlowPilot: Run Pre-PR Workflow when you are ready to review the diff. The result is printed in the FlowPilot output channel and saved for Debug Last Report.",
+            "media": { "image": "media/icon.png", "altText": "FlowPilot mark" }
+          }
+        ]
+      }
+    ]
+  }
+}

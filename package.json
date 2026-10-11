@@ -1,0 +1,19 @@
+{
+  "name": "flowpilot",
+  "private": true,
+  "packageManager": "pnpm@9.15.9",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @flowpilot/web dev",
+    "build": "pnpm --filter @flowpilot/web build",
+    "test": "vitest run",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "flowpilot": "pnpm --filter @flowpilot/cli exec tsx src/main.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "vitest": "^3.2.4"
+  }
+}

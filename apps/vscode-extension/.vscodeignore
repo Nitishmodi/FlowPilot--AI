@@ -1,0 +1,4 @@
+.vscode/**
+**/*.map
+media/render-icon.mjs
+.gitignore

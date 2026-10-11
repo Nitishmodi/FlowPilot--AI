@@ -1,0 +1,11 @@
+node_modules/
+.next/
+.pnpm-store/
+.env
+.env.*
+.flowpilot/
+.flowpilot-tests/
+dist/
+.DS_Store
+*.log
+*.tsbuildinfo

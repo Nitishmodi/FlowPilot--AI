@@ -1,0 +1,27 @@
+version: 1
+project:
+  name: FlowPilot AI
+  defaultBaseBranch: main
+execution:
+  timeoutSeconds: 300
+  maxParallelTasks: 4
+checks:
+  format: true
+  lint: true
+  types: true
+  tests: true
+  secrets: true
+workflows:
+  pre-pr:
+    include:
+      - fmt
+      - lint
+      - types
+      - test
+      - secrets
+      - review
+permissions:
+  allowSafeFixes: false
+  allowGitCommit: false
+  allowGitPush: false
+  allowPullRequestCreation: false
